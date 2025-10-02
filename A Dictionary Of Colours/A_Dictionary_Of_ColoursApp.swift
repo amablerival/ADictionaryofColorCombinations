@@ -7,6 +7,7 @@
 
 import SwiftUI
 
+@available(iOS 17.0, *)
 @main
 struct A_Dictionary_Of_ColoursApp: App {
     var body: some Scene {
