@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 56;
+	objectVersion = 70;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -45,6 +45,15 @@
 		F4782A652A9958C300C3B023 /* A_Dictionary_Of_ColoursUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = A_Dictionary_Of_ColoursUITests.swift; sourceTree = "<group>"; };
 		F4782A672A9958C300C3B023 /* A_Dictionary_Of_ColoursUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = A_Dictionary_Of_ColoursUITestsLaunchTests.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
+
+/* Begin PBXFileSystemSynchronizedRootGroup section */
+		F481DC942E889DCC0079C3A6 /* Utils */ = {isa = PBXFileSystemSynchronizedRootGroup; explicitFileTypes = {}; explicitFolders = (); path = Utils; sourceTree = "<group>"; };
+		F4DEB3362E88B288004D747E /* Shared */ = {isa = PBXFileSystemSynchronizedRootGroup; explicitFileTypes = {}; explicitFolders = (); path = Shared; sourceTree = "<group>"; };
+		F4DEB33C2E88F5B5004D747E /* Views */ = {isa = PBXFileSystemSynchronizedRootGroup; explicitFileTypes = {}; explicitFolders = (); path = Views; sourceTree = "<group>"; };
+		F4DEB3402E88F69C004D747E /* Models */ = {isa = PBXFileSystemSynchronizedRootGroup; explicitFileTypes = {}; explicitFolders = (); path = Models; sourceTree = "<group>"; };
+		F4DEB3412E88F6B4004D747E /* Data */ = {isa = PBXFileSystemSynchronizedRootGroup; explicitFileTypes = {coloursData = text.json; }; explicitFolders = (); path = Data; sourceTree = "<group>"; };
+		F4DEB3452E890885004D747E /* Services */ = {isa = PBXFileSystemSynchronizedRootGroup; explicitFileTypes = {}; explicitFolders = (); path = Services; sourceTree = "<group>"; };
+/* End PBXFileSystemSynchronizedRootGroup section */
 
 /* Begin PBXFrameworksBuildPhase section */
 		F4782A442A9958C200C3B023 /* Frameworks */ = {
@@ -94,6 +103,12 @@
 		F4782A492A9958C200C3B023 /* A Dictionary Of Colours */ = {
 			isa = PBXGroup;
 			children = (
+				F4DEB3452E890885004D747E /* Services */,
+				F4DEB3412E88F6B4004D747E /* Data */,
+				F4DEB3402E88F69C004D747E /* Models */,
+				F4DEB33C2E88F5B5004D747E /* Views */,
+				F4DEB3362E88B288004D747E /* Shared */,
+				F481DC942E889DCC0079C3A6 /* Utils */,
 				F4782A4A2A9958C200C3B023 /* A_Dictionary_Of_ColoursApp.swift */,
 				F4782A4C2A9958C200C3B023 /* ContentView.swift */,
 				F4782A4E2A9958C200C3B023 /* Assets.xcassets */,
@@ -141,6 +156,14 @@
 			buildRules = (
 			);
 			dependencies = (
+			);
+			fileSystemSynchronizedGroups = (
+				F481DC942E889DCC0079C3A6 /* Utils */,
+				F4DEB3362E88B288004D747E /* Shared */,
+				F4DEB33C2E88F5B5004D747E /* Views */,
+				F4DEB3402E88F69C004D747E /* Models */,
+				F4DEB3412E88F6B4004D747E /* Data */,
+				F4DEB3452E890885004D747E /* Services */,
 			);
 			name = "A Dictionary Of Colours";
 			productName = "A Dictionary Of Colours";
@@ -420,11 +443,13 @@
 				DEVELOPMENT_TEAM = A97Q5GVVWA;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_CFBundleDisplayName = "A Dictionary of Color Combinations";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 18.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -449,11 +474,13 @@
 				DEVELOPMENT_TEAM = A97Q5GVVWA;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_CFBundleDisplayName = "A Dictionary of Color Combinations";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 18.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
