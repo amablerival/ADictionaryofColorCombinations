@@ -36,23 +36,24 @@ struct ContentView: View {
                     ColourLazyGridView(selectedColor: $selectedColor)
                 }
                 
-            }.padding(.zero)
-                .toolbar {
-                    ToolbarItemGroup(placement: .bottomBar) {
+            }
+            .padding(.zero)
+            .toolbar {
+                ToolbarItemGroup(placement: .bottomBar) {
 //                        Button {
 ////                            showPicker.toggle()
 //                        } label: {
 //                            Image(systemName: "list.triangle")
 //                                .foregroundStyle( colorScheme == .dark ? Color.white : Color.black )
 //                        }
-                        Button {
-                            showPicker.toggle()
-                        } label: {
-                            Image(systemName: "photo.artframe.circle.fill")
-                                .foregroundStyle( colorScheme == .dark ? Color.white : Color.black )
-                        }
+                    Button {
+                        showPicker.toggle()
+                    } label: {
+                        Image(systemName: "photo.artframe.circle.fill")
+                            .foregroundStyle( colorScheme == .dark ? Color.white : Color.black )
                     }
                 }
+            }
         }.imageColorPicker(showPicker: $showPicker, color: $selectedColor)
     }
 }
