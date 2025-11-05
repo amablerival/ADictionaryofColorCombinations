@@ -6,9 +6,3 @@
 //
 
 import SwiftUI
-
-func getColour(by name: String) -> Color {
-    let data: [ColourModel] = ColourService.getData()
-    let colour = data.filter { $0.name == name }.first ?? data[0]
-    return colour.normalized
-}

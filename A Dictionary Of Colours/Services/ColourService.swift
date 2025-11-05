@@ -6,18 +6,28 @@
 //
 
 import Foundation
+import SwiftUICore
 
 class ColourService {
     static private let data: [ColourModel] = load("coloursData")
     static func getData() -> [ColourModel] {
         return data
     }
-    static func combine(_ colour: ColourModel, with data: [ColourModel]) -> [ColourCombination] {
+    static func combine(_ colour: ColourModel, with data: [ColourModel] = data) -> [ColourCombination] {
+        let mapped = data.enumerated().map{(i, m) in
+            var copy = m
+            copy.index = i + 1
+            return copy
+        }
         let combinedItems = Array(Set(colour.combinations.map { comb in
-            let filtered = data.filter{$0.combinations.contains(comb) && $0.name != colour.name}
-            return filtered.map{m in ColourCombination(id: "\(comb)", combinations: filtered)}
+            let filtered = mapped.filter{$0.combinations.contains(comb) && $0.name != colour.name}
+            return filtered.map{_ in ColourCombination(id: "\(comb)", combinations: filtered)}
         }.flatMap{$0})).sorted {$0.id < $1.id}
         return combinedItems.sorted {$0.combinations.count < $1.combinations.count}
+    }
+    static func getColour(by name: String) -> Color {
+        let colour = data.filter { $0.name == name }.first ?? data[0]
+        return colour.normalized
     }
 }
 

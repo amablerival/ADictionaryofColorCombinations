@@ -38,12 +38,17 @@ extension Color {
     
     
     func findClosestColours(by amount: Int = 3) -> [ColourModel] {
-        let data: [ColourModel] = ColourService.getData()
+        let data: [ColourModel] = ColourService.getData().enumerated().map() {(i, m) in
+            var copy = m
+            copy.index = i + 1
+            return copy
+        }
         let sorted = data.sorted(by: { (a: ColourModel, b: ColourModel) -> Bool in
             a.normalized.euclideanDistance(to: self) < b.normalized.euclideanDistance(to: self)
         }).map(){m in
             var copy = m
             copy.distance = copy.normalized.euclideanDistance(to: self)
+            copy.distanceLabel = "\(String(format: "%.2f", copy.distance  ?? 1.0) )"
             return copy
         }
         return Array(sorted[0..<amount])

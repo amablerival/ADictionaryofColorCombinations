@@ -39,7 +39,8 @@ struct ColourModel: ColourProtocol {
     let rgb: [Int]
     let hex: String
     var distance: Double?
-    
+    var distanceLabel: String?
+    var index: Int?
     var comb: Int?
     
     var normalized: Color {
