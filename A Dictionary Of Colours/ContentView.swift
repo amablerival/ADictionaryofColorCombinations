@@ -10,7 +10,7 @@ import SwiftUI
 @available(iOS 17.0, *)
 struct ContentView: View {
     // Selected Color state, should be shared across some views
-    @State var selectedColor: Color = ColourService.getColour(by: "Cossack Green")
+    @State var selectedColor: Color = ColourService.getRandomColour()
     
     // Picker State for Toolbar Item
     @State var showPicker: Bool = false
@@ -35,6 +35,14 @@ struct ContentView: View {
                     // Lazy Grid
                     ColourLazyGridView(selectedColor: $selectedColor)
                 }
+//                .gesture(
+//                    DragGesture(minimumDistance: 30, coordinateSpace: .scrollView)
+//                        .onChanged { gesture in
+//                            let height = gesture.translation.width
+//                            print("drag? \(height)")
+//                        }
+//                )
+                
                 
             }
             .padding(.zero)
@@ -50,7 +58,7 @@ struct ContentView: View {
                         showPicker.toggle()
                     } label: {
                         Image(systemName: "photo.artframe.circle.fill")
-                            .foregroundStyle( colorScheme == .dark ? Color.white : Color.black )
+                            .foregroundStyle( colorScheme == .dark ? .white : .black )
                     }
                 }
             }
@@ -68,6 +76,9 @@ struct SelectedColorStatusBar: View {
            Rectangle()
                 .fill(selectedColor)
                 .frame(width: size * 4.6, height: size)
+                .onTapGesture {
+                    selectedColor = ColourService.getRandomColour()
+                }
 //                    Text("Selected: \(selectedColor.description)")
 //                       .font(.footnote)
 //                       .multilineTextAlignment(.center)

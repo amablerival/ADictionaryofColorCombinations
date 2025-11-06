@@ -11,7 +11,8 @@ struct ColourCombinationBottomView: View {
     var combinedColors: [ColourCombination]
     var colour: ColourModel
     var body: some View {
-        Text("\(combinedColors.count) COMBINATIONS").font(.subheadline).foregroundColor(.gray)
+        Text("\(combinedColors.count) COMBINATIONS")
+            .font(.subheadline)
         ScrollView {
             ForEach(combinedColors, id: \.self) { datum in
                 NavigationLink {
@@ -19,7 +20,7 @@ struct ColourCombinationBottomView: View {
                         ColourSwatchView(id: datum.id, swatches: datum.combinations, colour: colour, size: .infinity)
                     }.listRowInsets(EdgeInsets())
                 } label: {
-                    ColourChapterView(id: datum.id, colour: colour.normalized, combinations: datum.combinations)
+                    ColourChapterView(id: datum.id, colour: colour, combinations: datum.combinations)
                         .padding(.bottom)
                 }.listRowInsets(EdgeInsets())
             }

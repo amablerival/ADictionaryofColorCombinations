@@ -32,6 +32,7 @@ struct ColourSingleSwatchView: View {
     var colour: ColourModel
     var size: CGFloat = 40.0
     var body: some View {
+        let contrast = Color.black.getContrast(with: colour.resolved)
         Rectangle()
             .fill(colour.normalized)
             .frame(maxWidth: size, maxHeight: size)
@@ -40,22 +41,22 @@ struct ColourSingleSwatchView: View {
                     VStack {
                         Text("\(colour.name)")
                             .font(.title)
-                            .foregroundStyle(.gray)
+                            .foregroundStyle(contrast)
                         Text("No. \(colour.index ?? 0)")
                             .font(.subheadline)
-                            .foregroundStyle(.gray)
+                            .foregroundStyle(contrast.secondary)
                     }.padding(.vertical)
                     HStack(alignment: .center, spacing: 40.0) {
                         Text("\(colour.cmykLabel)")
                             .font(.headline)
-                            .foregroundStyle(.gray)
+                            .foregroundStyle(contrast)
                             .onTapGesture() {
                                 UIPasteboard.general.setValue(colour.cmykLabel,
                                 forPasteboardType: UTType.plainText.identifier)
                             }
                         Text("\(colour.hex)")
                             .font(.headline)
-                            .foregroundStyle(.gray)
+                            .foregroundStyle(contrast)
                             .onTapGesture() {
                                 UIPasteboard.general.setValue(colour.hex,
                                 forPasteboardType: UTType.plainText.identifier)

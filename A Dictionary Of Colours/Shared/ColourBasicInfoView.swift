@@ -12,6 +12,7 @@ struct ColourBasicInfoView: View {
     @State var index: Int
     let size: CGFloat = 80.0
     var body: some View {
+        let contrast = Color.black.getContrast(with: colour.resolved)
         VStack {
             Rectangle()
                 .fill(colour.normalized)
@@ -20,7 +21,7 @@ struct ColourBasicInfoView: View {
                     VStack {
                         Text("\(colour.index ?? 0)")
                             .font(.footnote)
-                            .foregroundStyle(Color.gray)
+                            .foregroundStyle(contrast.secondary)
                             .frame(
                                 maxWidth: .greatestFiniteMagnitude,
                                 alignment: .topLeading
@@ -29,7 +30,7 @@ struct ColourBasicInfoView: View {
                             .padding(.top, 2.5)
                         Text("\(colour.cmykLabel)")
                             .font(.subheadline)
-                            .foregroundStyle(Color.gray)
+                            .foregroundStyle(contrast)
                             .frame(
                                 maxHeight: .greatestFiniteMagnitude,
                                 alignment: .top

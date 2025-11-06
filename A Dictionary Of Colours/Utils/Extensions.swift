@@ -61,6 +61,17 @@ extension Color {
 //        })
 //        return Array(sorted[0..<amount]) as! [T]
 //    }
+    
+    // LUMINANCE
+    func getLuminance(with color: Color.Resolved) -> Float {
+        let r = 0.2126 * color.red
+        let g = 0.7152 * color.green
+        let b = 0.0722 * color.blue
+        return r + g + b
+    }
+    func getContrast(with color: Color.Resolved) -> Color {
+        return self.getLuminance(with: color)  < 0.33 ? Color.white : Color.black
+    }
 }
 
 

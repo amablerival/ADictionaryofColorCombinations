@@ -8,27 +8,6 @@
 import Foundation
 import SwiftUI
 
-struct ColourCombination: Identifiable, Hashable, Comparable {
-    static func < (lhs: ColourCombination, rhs: ColourCombination) -> Bool {
-        lhs.id > rhs.id
-    }
-    let id: String
-    let combinations: [ColourModel]
-}
-
-protocol ColourProtocol: Decodable, Identifiable, Hashable, Sendable {
-    var id: UUID { get }
-    var name: String { get }
-    var combinations: [Int] { get }
-    var swatch: Int { get }
-    var cmyk: [Int] { get }
-    var lab: [Double] { get }
-    var rgb: [Int] { get }
-    var hex: String { get }
-}
-
-
-
 struct ColourModel: ColourProtocol {
     let id = UUID()
     let name: String
@@ -48,6 +27,14 @@ struct ColourModel: ColourProtocol {
             red: normalizeBy(rgb[0]),
             green: normalizeBy(rgb[1]),
             blue: normalizeBy(rgb[2])
+        )
+    }
+    
+    var resolved: Color.Resolved {
+        return Color.Resolved(
+            red: Float(normalizeBy(rgb[0])),
+            green: Float(normalizeBy(rgb[1])),
+            blue: Float(normalizeBy(rgb[2]))
         )
     }
     

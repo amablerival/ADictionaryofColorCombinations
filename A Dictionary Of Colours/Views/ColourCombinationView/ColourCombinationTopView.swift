@@ -12,6 +12,7 @@ struct ColourCombinationTopView: View {
     var name: String
     var colour: Color
     var hex: String
+    var index: String
     var body: some View {
         VStack {
             Rectangle()
@@ -21,13 +22,17 @@ struct ColourCombinationTopView: View {
                 .font(.largeTitle)
                 .bold()
                 .foregroundStyle(colour)
-            Text(hex)
+            Text("No. \(index)")
                 .font(.footnote)
-                .foregroundColor(.gray)
+//                .foregroundStyle(colour)
+            Text(hex)
+                .font(.title3)
+                .foregroundStyle(colour)
                 .onTapGesture(count: 2) {
                     UIPasteboard.general.setValue(hex,
                     forPasteboardType: UTType.plainText.identifier)
                 }
+                .padding(.vertical)
         }
     }
 }

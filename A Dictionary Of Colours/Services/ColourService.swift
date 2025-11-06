@@ -29,6 +29,9 @@ class ColourService {
         let colour = data.filter { $0.name == name }.first ?? data[0]
         return colour.normalized
     }
+    static func getRandomColour() -> Color {
+        return data.randomElement()?.normalized ?? .cyan
+    }
 }
 
 
